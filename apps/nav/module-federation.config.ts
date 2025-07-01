@@ -3,7 +3,14 @@ import { ModuleFederationConfig } from '@nx/module-federation';
 const config: ModuleFederationConfig = {
   name: 'nav',
   exposes: {
-    './Routes': 'apps/nav/src/app/remote-entry/entry.routes.ts',
+    './Routes': 'apps/nav/src/app/components/nav/nav.routes.ts',
+    './Nav': 'apps/nav/src/app/components/nav/nav.ts',
+  },
+  shared(libraryName, sharedConfig) {
+    const sharedLibs = ['@angular/core', '@angular/common', '@angular/router'];
+
+    const config = { ...sharedConfig, singleton: true, strictVersion: true };
+    return sharedLibs.includes(libraryName) ? config : false;
   },
 };
 

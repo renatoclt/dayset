@@ -1,77 +1,163 @@
-# Dayset
+# 📅 Dayset
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+**Dayset** es una aplicación desarrollada en Flutter y web (Nx + Module Federation) que busca ayudarte a organizar y estructurar tus días de forma simple y efectiva. El enfoque está en la planificación diaria, rutinas, hábitos y metas personales.
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+---
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/intro#learn-nx?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+## 🧭 Propósito del Proyecto
 
-## Finish your remote caching setup
+El objetivo de Dayset es crear una app intuitiva que permita:
+- Planificar tareas diarias.
+- Crear y seguir rutinas.
+- Visualizar el progreso en metas personales.
+- Registrar hábitos diarios.
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/SgZouPM7Uh)
+---
+
+## 🎯 Funcionalidades planeadas
+
+- [ ] ✅ Agenda diaria con tareas y eventos.
+- [ ] 🕓 Rutinas (por ejemplo: rutina de mañana, noche, gym).
+- [ ] 📊 Seguimiento de hábitos.
+- [ ] 🎯 Seguimiento de metas semanales o mensuales.
+- [ ] 🔔 Recordatorios y notificaciones.
+- [ ] 🧠 Alguna inteligencia para sugerencias de organización (en el futuro).
+
+---
+
+## 🛠️ Tecnologías
+
+### 🧩 Mobile
+- Flutter
+
+### 🌐 Web
+- Nx (monorepo)
+- Module Federation para arquitectura por micro frontends
+- Angular
+
+### 📦 Compartido
+- Diseño de UI unificado
+- Compartición de modelos y lógica de negocio entre apps
+
+---
+
+## 🗂️ Estructura del Proyecto
+
+| Carpeta   | Contenido                                                           |
+|-----------|---------------------------------------------------------------------|
+| `/apps`   | Aplicaciones principales (mobile, web, admin, etc.)                 |
+| `/libs`   |  Web Components (Stencil), modelos, servicios, diseño compartido    |
+| `/docs`   | Documentación técnica o diagramas futuros                           |
+
+---
+
+## 📍 Estado actual
+
+> **Fecha de retomado:** 30 de junio de 2025  
+Actualmente se está reactivando el desarrollo. Se avanza en paralelo en:
+- 📱 **Flutter**: Funcionalidades básicas de tareas.
+- 🌐 **Nx Web**: Estructura base del sitio web y primeros componentes.
+
+**Próximo paso:** Definir MVP en ambas plataformas y construir UI funcional en la web.
+
+---
+
+## ✅ MVP (Producto Mínimo Viable)
+
+### Móvil
+- Pantalla de bienvenida
+- Crear una tarea con fecha y hora
+- Ver la lista del día
+- Marcar tareas como completadas
+
+### Web
+- Landing page con información del proyecto
+- Sección para ver tareas y añadir nuevas
+- Base para micro frontends si es necesario
+
+### 📦 Librerías compartidas (`/libs`)
+- **Stencil**: para crear Web Components reutilizables en Flutter y web
+- Modelos y lógica compartida
+- Servicios comunes (por ejemplo: manejo de tareas, fecha, estado)
 
 
-## Run tasks
+---
 
-To run tasks with Nx use:
+## ✍️ Notas personales
 
-```sh
-npx nx <target> <project-name>
+- Mantener el enfoque en **funcionalidad básica antes que diseño avanzado**.
+- Evitar duplicar lógica entre móvil y web — usar librerías compartidas.
+- Web: usar Nx para probar estructura escalable desde el inicio.
+- No intentar hacer todo desde el inicio. Ir funcionalidad por funcionalidad.
+
+
+---
+
+## 🚀 Comandos útiles para desarrollo
+
+### 📱 Flutter (mobile)
+
+```bash
+# Ejecutar la app Flutter en modo debug
+flutter run
+
+# Ejecutar pruebas
+flutter test
+
+# Formatear el código
+flutter format .
 ```
 
-For example:
+### 🌐 Nx (web)
 
-```sh
-npx nx build myproject
+```bash
+# Ejecutar toda la app
+npm run serve
+
+# Servir una app web (por ejemplo: shell)
+npx nx serve 
+
+# Servir con remotos (ejemplo con 'goals' y 'nav')
+npx nx serve shell --devRemotes=goals,nav
+
+# Generar una nueva app o lib MF
+nx g @nx/angular:remote apps/home --host=shell
+
+# Generar una nueva app 
+npx nx g @nx/angular:app apps/nombre-app 
+
+# Generar una nueva  lib 
+nx g @nx/angular:lib libs/mf-contracts --standalone
+npx nx g @nx/web:lib nombre-lib
+
+# Ejecutar pruebas
+npx nx test nombre-proyecto
+
+# Linting
+npx nx lint nombre-proyecto
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+### 🧩 Stencil (componentes en libs)
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+```bash
+# Compilar componentes
+npx nx build nombre-lib-stencil
 
-## Add new projects
+# Servir en modo desarrollo
+npx nx serve nombre-lib-stencil
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
+# Ejecutar pruebas unitarias
+npx nx test nombre-lib-stencil
 
-To install a new plugin you can use the `nx add` command. Here's an example of adding the React plugin:
-```sh
-npx nx add @nx/react
+# Generar un nuevo componente 
+## probar se creo manualmente este proyecto porque no se tenia la version actualizada
+npx nx g @nxext/stencil:component nombre-componente --project=nombre-lib-stencil
 ```
 
-Use the plugin's generator to create new projects. For example, to create a new React app or library:
+### 🧼 Otros
 
-```sh
-# Generate an app
-npx nx g @nx/react:app demo
+```bash
 
-# Generate a library
-npx nx g @nx/react:lib some-lib
+# Limpiar caché de Nx si es necesario
+npx nx reset
 ```
-
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
-
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/getting-started/intro#learn-nx?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)

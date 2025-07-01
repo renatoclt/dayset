@@ -16,7 +16,9 @@
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
+      "@dayset/mf-contracts": ["libs/mf-contracts/src/index.ts"],
       "goals/Routes": ["apps/goals/src/app/remote-entry/entry.routes.ts"],
+      "home/Routes": ["apps/home/src/app/remote-entry/entry.routes.ts"],
       "nav/Routes": ["apps/nav/src/app/remote-entry/entry.routes.ts"]
     }
   },

@@ -6,6 +6,11 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface DsSideDrawer {
+        "open": () => Promise<void>;
+        "opened": boolean;
+        "title": string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -22,6 +27,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLDsSideDrawerElement extends Components.DsSideDrawer, HTMLStencilElement {
+    }
+    var HTMLDsSideDrawerElement: {
+        prototype: HTMLDsSideDrawerElement;
+        new (): HTMLDsSideDrawerElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -29,10 +40,15 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "ds-side-drawer": HTMLDsSideDrawerElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface DsSideDrawer {
+        "opened"?: boolean;
+        "title"?: string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -48,6 +64,7 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "ds-side-drawer": DsSideDrawer;
         "my-component": MyComponent;
     }
 }
@@ -55,6 +72,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ds-side-drawer": LocalJSX.DsSideDrawer & JSXBase.HTMLAttributes<HTMLDsSideDrawerElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
