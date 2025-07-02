@@ -128,7 +128,8 @@ npx nx g @nx/angular:app apps/nombre-app
 
 # Generar una nueva  lib 
 nx g @nx/angular:lib libs/mf-contracts --standalone
-npx nx g @nx/web:lib nombre-lib
+
+nx g @nx/angular:lib --name=libs/design/design-tokens --buildable=false
 
 # Ejecutar pruebas
 npx nx test nombre-proyecto

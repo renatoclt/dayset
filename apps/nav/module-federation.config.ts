@@ -4,7 +4,7 @@ const config: ModuleFederationConfig = {
   name: 'nav',
   exposes: {
     './Routes': 'apps/nav/src/app/components/nav/nav.routes.ts',
-    './Nav': 'apps/nav/src/app/components/nav/nav.ts',
+    './NavComponent': 'apps/nav/src/app/components/nav/nav.ts',
   },
   shared(libraryName, sharedConfig) {
     const sharedLibs = ['@angular/core', '@angular/common', '@angular/router'];

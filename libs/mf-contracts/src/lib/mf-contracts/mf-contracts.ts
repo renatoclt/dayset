@@ -1,4 +1,4 @@
-export interface NavComponentContract {
+export interface NavContract {
   title?: string;
   showBackButton?: boolean;
 }

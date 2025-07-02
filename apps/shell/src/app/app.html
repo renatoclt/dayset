@@ -1,4 +1,4 @@
-<!-- <ng-container *ngIf="navComponent | async as Nav">
-  <ng-container *ngComponentOutlet="Nav" />
-</ng-container> -->
-<router-outlet />
+@if (nav) {
+  <ng-container *ngComponentOutlet="nav"></ng-container>
+}
+<router-outlet></router-outlet>

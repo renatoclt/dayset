@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "types": ["jest", "jsdom"],
+    "esModuleInterop": true
+  },
+  "include": ["**/*.ts"]
+}

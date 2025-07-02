@@ -16,6 +16,7 @@
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
+      "@dayset/design-tokens": ["libs/design/src/index.ts"],
       "@dayset/mf-contracts": ["libs/mf-contracts/src/index.ts"],
       "goals/Routes": ["apps/goals/src/app/remote-entry/entry.routes.ts"],
       "home/Routes": ["apps/home/src/app/remote-entry/entry.routes.ts"],
