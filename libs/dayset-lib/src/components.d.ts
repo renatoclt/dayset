@@ -6,10 +6,16 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface DsSideDrawer {
-        "open": () => Promise<void>;
-        "opened": boolean;
-        "title": string;
+    interface DsButton {
+        /**
+          * @default false
+         */
+        "disabled": boolean;
+        "label": string;
+        /**
+          * @default 'primary'
+         */
+        "variant": 'primary' | 'secondary';
     }
     interface MyComponent {
         /**
@@ -26,12 +32,27 @@ export namespace Components {
         "middle": string;
     }
 }
+export interface DsButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsButtonElement;
+}
 declare global {
-    interface HTMLDsSideDrawerElement extends Components.DsSideDrawer, HTMLStencilElement {
+    interface HTMLDsButtonElementEventMap {
+        "buttonClick": void;
     }
-    var HTMLDsSideDrawerElement: {
-        prototype: HTMLDsSideDrawerElement;
-        new (): HTMLDsSideDrawerElement;
+    interface HTMLDsButtonElement extends Components.DsButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDsButtonElementEventMap>(type: K, listener: (this: HTMLDsButtonElement, ev: DsButtonCustomEvent<HTMLDsButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDsButtonElementEventMap>(type: K, listener: (this: HTMLDsButtonElement, ev: DsButtonCustomEvent<HTMLDsButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLDsButtonElement: {
+        prototype: HTMLDsButtonElement;
+        new (): HTMLDsButtonElement;
     };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
@@ -40,14 +61,22 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
-        "ds-side-drawer": HTMLDsSideDrawerElement;
+        "ds-button": HTMLDsButtonElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
-    interface DsSideDrawer {
-        "opened"?: boolean;
-        "title"?: string;
+    interface DsButton {
+        /**
+          * @default false
+         */
+        "disabled"?: boolean;
+        "label"?: string;
+        "onButtonClick"?: (event: DsButtonCustomEvent<void>) => void;
+        /**
+          * @default 'primary'
+         */
+        "variant"?: 'primary' | 'secondary';
     }
     interface MyComponent {
         /**
@@ -64,7 +93,7 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
-        "ds-side-drawer": DsSideDrawer;
+        "ds-button": DsButton;
         "my-component": MyComponent;
     }
 }
@@ -72,7 +101,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "ds-side-drawer": LocalJSX.DsSideDrawer & JSXBase.HTMLAttributes<HTMLDsSideDrawerElement>;
+            "ds-button": LocalJSX.DsButton & JSXBase.HTMLAttributes<HTMLDsButtonElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

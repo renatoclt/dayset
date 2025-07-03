@@ -1,19 +1,20 @@
 .nav {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  justify-content: space-between;
   padding: var(--spacing-md);
   background-color: var(--color-primary);
   border-bottom: 1px solid var(--color-border);
 
   &__logo {
-    height: var(--logo-size);
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
+    overflow: hidden;
+    max-width: 100%;
 
     img {
-      height: 5rem;
+      height: var(--logo-size);
     }
   }
 
@@ -22,41 +23,42 @@
     font-size: var(--font-size-4xl);
     font-weight: var(--font-weight-medium);
     letter-spacing: var(--letter-spacing-tight);
-    color: var(--color-text-setday);
+    color: var(--color-text-primary);
     padding: 0 var(--spacing-md);
   }
 
   .nav__options {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: var(--spacing-md);
+    flex-wrap: wrap;
+    overflow: hidden;
   }
 
   .nav__option {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
+    font-family: var(--font-heading);
+    font-size: var(--font-size-3xl);
+    color: var(--color-text-primary);
     text-decoration: none;
     padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: var(--radius-sm);
     transition: background-color 0.2s ease;
 
     &:hover {
-      background-color: var(--color-hover);
+      background-color: var(--color-primary-hover);
     }
 
     &.active {
-      color: var(--color-primary);
+      color: var(--color-text-setday);
       font-weight: var(--font-weight-medium);
     }
   }
 
   &__actions {
+    justify-self: end;
     font-size: var(--font-size-sm);
     color: var(--color-primary);
     cursor: pointer;
   }
 }
-
-// .nav__logo{
-//   height: 5rem;
-//   display: flex;
-// }

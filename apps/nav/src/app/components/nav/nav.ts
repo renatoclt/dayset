@@ -14,11 +14,11 @@ export class NavComponent implements NavContract {
   @Input() title = '';
   @Input() showBackButton = false;
 
-  logoImg = 'logo_sin_fondo.png';
+  logoImg = '/assets/design/logo_sin_fondo.png';
 
   menuOptions = [
-  { path: '/today', label: 'Hoy' },
-  { path: '/routines', label: 'Rutinas' },
-  { path: '/goals', label: 'Metas' }
-];
+    { path: '/today', label: 'Hoy' },
+    { path: '/routines', label: 'Rutinas' },
+    { path: '/goals', label: 'Metas' },
+  ];
 }

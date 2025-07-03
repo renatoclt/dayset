@@ -11,38 +11,9 @@
       body {
         font-family: sans-serif;
       }
-      .side-nav ul {
-        list-style: none;
-      }
-      .side-nav li {
-        margin: 1rem;
-      }
-      .side-nav a {
-        text-decoration: none;
-        color: black;
-      }
     </style>
   </head>
   <body>
-    <button id="side-drawer-btn" style="z-index: 1000; background: black; color: white; position: absolute;">Open side <menu></menu></button>
     <my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component>
-    <ds-side-drawer title="Main Menu">
-      <nav class="side-nav">
-        <ul>
-          <li><a>A link</a></li>
-          <li><a>other link</a></li>
-        </ul>
-      </nav>
-    </ds-side-drawer>
-    <script>
-      const sideDrawerButton = document.querySelector('#side-drawer-btn');
-      const sideDrawer = document.querySelector('ds-side-drawer');
-      console.log(sideDrawer);
-      sideDrawerButton.addEventListener('click', ()=> {
-        if(!sideDrawer.open) {
-          sideDrawer.open();
-        }
-      });
-    </script>
   </body>
 </html>

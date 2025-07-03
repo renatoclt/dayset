@@ -24,6 +24,11 @@
           {
             "input": "libs/design/src/styles",
             "glob": "**/*.css",
+            "output": "assets/styles"
+          },
+          {
+            "input": "libs/design/src/assets",
+            "glob": "**/*",
             "output": "assets/design"
           }
         ],

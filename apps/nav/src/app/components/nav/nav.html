@@ -5,19 +5,16 @@
   </div>
 
   <div class="nav__options">
-    @for(option of menuOptions; track option.label) {
-      @if(option){
-        <a
-          class="nav__option"
-          [routerLink]="option.path"
-          routerLinkActive="active"
-        >
-          {{ option.label }}
-        </a>
+    @for(option of menuOptions; track option.label) { @if(option){
+    <a class="nav__option" [routerLink]="option.path" routerLinkActive="active">
+      {{ option.label }}
+    </a>
 
-      }
-    }
+    } }
   </div>
 
-  <div class="nav__actions">login</div>
+  <div class="nav__actions">
+    <ds-button>Register</ds-button>
+    <!-- <ds-button [routerLink]="['/profile']" icon="person" class="nav__button"></ds-button> -->
+  </div>
 </div>

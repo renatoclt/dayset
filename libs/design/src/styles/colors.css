@@ -12,9 +12,8 @@
   /* Colores de fondo y texto  */
   --color-surface: #ffffff;
   --color-border: #e0e0e0;
-  --color-text-primary: #1a1a1a;
+  --color-text-primary: #f0f0f0;
   --color-text-secondary: #4f4f4f;
-  --color-hover: #f2f2f2;
-
+  --color-primary-hover: #334155;
   --color-text-setday: #f0f0f0;
 }

@@ -20,6 +20,11 @@
           {
             "glob": "**/*",
             "input": "apps/shell/public"
+          },
+          {
+            "input": "libs/design/src/assets",
+            "glob": "**/*",
+            "output": "assets/design"
           }
         ],
         "styles": [
