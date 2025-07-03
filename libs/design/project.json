@@ -1,7 +1,7 @@
 {
   "name": "design-tokens",
-  "$schema": "../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "design/src",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/design/src",
   "prefix": "lib",
   "projectType": "library",
   "tags": [],

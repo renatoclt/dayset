@@ -20,9 +20,17 @@
           {
             "glob": "**/*",
             "input": "apps/nav/public"
+          },
+          {
+            "input": "libs/design/src/styles",
+            "glob": "**/*.css",
+            "output": "assets/design"
           }
         ],
-        "styles": ["apps/nav/src/styles.scss"],
+        "styles": [
+          "libs/design/src/styles/tokens.css",
+          "apps/nav/src/styles.scss"
+        ],
         "customWebpackConfig": {
           "path": "apps/nav/webpack.config.ts"
         }

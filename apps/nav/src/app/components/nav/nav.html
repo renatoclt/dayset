@@ -1,6 +1,23 @@
-<div>
+<div class="nav">
   <div class="nav__logo">
-    <img src="logoImg" alt="DaySet">
+    <img [src]="logoImg" alt="DaySet" />
     <span class="nav__brand">DaySet</span>
   </div>
+
+  <div class="nav__options">
+    @for(option of menuOptions; track option.label) {
+      @if(option){
+        <a
+          class="nav__option"
+          [routerLink]="option.path"
+          routerLinkActive="active"
+        >
+          {{ option.label }}
+        </a>
+
+      }
+    }
+  </div>
+
+  <div class="nav__actions">login</div>
 </div>

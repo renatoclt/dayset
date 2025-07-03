@@ -1,0 +1,20 @@
+:root {
+  /* Colors */
+  /* Azul oscuro neutro */
+  --color-primary: #0f172a;
+
+  --color-orange: #f7941d;
+
+  --color-green: #00a78e;
+
+  --color-blue: #0077d6;
+
+  /* Colores de fondo y texto  */
+  --color-surface: #ffffff;
+  --color-border: #e0e0e0;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #4f4f4f;
+  --color-hover: #f2f2f2;
+
+  --color-text-setday: #f0f0f0;
+}
